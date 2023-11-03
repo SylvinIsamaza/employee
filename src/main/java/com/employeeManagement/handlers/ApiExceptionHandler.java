@@ -1,7 +1,7 @@
-package com.employeeManagement.user.handlers;
+package com.employeeManagement.handlers;
 
-import com.employeeManagement.user.errors.ApiException;
-import com.employeeManagement.user.exception.ApiRequestException;
+import com.employeeManagement.errors.ApiException;
+import com.employeeManagement.exception.ApiRequestException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.ControllerAdvice;

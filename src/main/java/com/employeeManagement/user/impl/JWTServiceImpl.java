@@ -1,7 +1,7 @@
 package com.employeeManagement.user.impl;
 
 
-import com.employeeManagement.user.exception.ApiRequestException;
+import com.employeeManagement.exception.ApiRequestException;
 import com.employeeManagement.user.services.JWTService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;

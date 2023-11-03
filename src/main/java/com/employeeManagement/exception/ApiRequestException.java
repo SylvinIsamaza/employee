@@ -1,4 +1,4 @@
-package com.employeeManagement.user.exception;
+package com.employeeManagement.exception;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

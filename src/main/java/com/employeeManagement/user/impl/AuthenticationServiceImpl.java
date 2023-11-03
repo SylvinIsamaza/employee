@@ -7,7 +7,7 @@ import com.employeeManagement.user.model.SignInRequest;
 import com.employeeManagement.user.model.SignUpRequest;
 import com.employeeManagement.user.entities.Role;
 import com.employeeManagement.user.entities.User;
-import com.employeeManagement.user.exception.ApiRequestException;
+import com.employeeManagement.exception.ApiRequestException;
 import com.employeeManagement.user.repository.UserRepository;
 import com.employeeManagement.user.services.AuthenticationService;
 import com.employeeManagement.user.services.EmailService;

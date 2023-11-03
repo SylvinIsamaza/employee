@@ -1,4 +1,4 @@
-package com.employeeManagement.user.errors;
+package com.employeeManagement.errors;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

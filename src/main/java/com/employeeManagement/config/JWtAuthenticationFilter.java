@@ -1,7 +1,7 @@
-package com.employeeManagement.user.config;
+package com.employeeManagement.config;
 
-import com.employeeManagement.user.errors.JWtAuthenticationResponse;
-import com.employeeManagement.user.exception.ApiRequestException;
+import com.employeeManagement.errors.JWtAuthenticationResponse;
+import com.employeeManagement.exception.ApiRequestException;
 import com.employeeManagement.user.services.JWTService;
 import com.employeeManagement.user.services.UserServiceSecurity;
 import com.fasterxml.jackson.databind.ObjectMapper;

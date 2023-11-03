@@ -1,4 +1,4 @@
-package com.employeeManagement.user.config;
+package com.employeeManagement.config;
 
 import com.employeeManagement.user.entities.Role;
 import com.employeeManagement.user.services.UserServiceSecurity;
@@ -42,7 +42,10 @@ public class SecurityConfiguration {
                                 "/swagger-ui/**",
                                 "/webjars/**",
                                 "/swagger-ui.html",
-                                "/api/v1/auth/**").permitAll()
+                                "/api/v1/auth/**",
+                                "/api/v1/employee/**"
+
+                        ).permitAll()
                         .requestMatchers("/api/v1/admin").hasAuthority(Role.ADMIN.name())
                         .requestMatchers("/api/v1/user").hasAuthority(Role.USER.name())
                         .requestMatchers("/api/v1/user/users").hasAuthority(Role.ADMIN.name())

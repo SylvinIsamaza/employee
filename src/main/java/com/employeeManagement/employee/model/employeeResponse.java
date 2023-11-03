@@ -1,2 +1,4 @@
-package com.employeeManagement.employee.model;public class employeeResponse {
+package com.employeeManagement.employee.model;
+
+public class employeeResponse {
 }

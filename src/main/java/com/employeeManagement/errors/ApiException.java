@@ -1,4 +1,4 @@
-package com.employeeManagement.user.errors;
+package com.employeeManagement.errors;
 
 import lombok.Data;
 import org.springframework.http.HttpStatus;

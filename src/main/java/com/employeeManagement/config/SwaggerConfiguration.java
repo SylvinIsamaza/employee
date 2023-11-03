@@ -1,4 +1,4 @@
-package com.employeeManagement.user.config;
+package com.employeeManagement.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;

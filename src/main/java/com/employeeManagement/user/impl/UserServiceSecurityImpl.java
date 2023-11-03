@@ -1,6 +1,6 @@
 package com.employeeManagement.user.impl;
 
-import com.employeeManagement.user.exception.ApiRequestException;
+import com.employeeManagement.exception.ApiRequestException;
 import com.employeeManagement.user.repository.UserRepository;
 import com.employeeManagement.user.services.UserServiceSecurity;
 import lombok.RequiredArgsConstructor;

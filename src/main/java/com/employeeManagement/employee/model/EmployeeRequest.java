@@ -1,7 +1,8 @@
 package com.employeeManagement.employee.model;
 
-import jakarta.validation.constraints.Email;
 import lombok.Data;
+
+import java.util.Date;
 
 @Data
 public class EmployeeRequest {
@@ -9,9 +10,8 @@ public class EmployeeRequest {
     private String department;
     private String jobTitle;
     private String salary;
-    private String startDate;
-    private String endDate;
+    private Date endDate;
     private String phoneNumber;
-    private Email email;
+    private String email;
 
 }

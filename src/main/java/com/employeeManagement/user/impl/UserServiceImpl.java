@@ -2,7 +2,7 @@ package com.employeeManagement.user.impl;
 
 
 import com.employeeManagement.user.entities.User;
-import com.employeeManagement.user.exception.ApiRequestException;
+import com.employeeManagement.exception.ApiRequestException;
 import com.employeeManagement.user.model.ResetPasswordRequest;
 import com.employeeManagement.user.model.UpdatePasswordResponse;
 import com.employeeManagement.user.model.UpdateUserRequest;
