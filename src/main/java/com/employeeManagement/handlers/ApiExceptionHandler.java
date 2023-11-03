@@ -19,7 +19,7 @@ public class ApiExceptionHandler  {
     public ResponseEntity<Object> handleApiRequestExceptionAlready(ApiRequestException e) {
         ApiException exc = new ApiException(
                 e.getMessage(),
-                e,
+                e.getCause(),
                 e.getStatus(),
                 ZonedDateTime.now(ZoneId.of("Z"))
         );

@@ -42,12 +42,13 @@ public class SecurityConfiguration {
                                 "/swagger-ui/**",
                                 "/webjars/**",
                                 "/swagger-ui.html",
-                                "/api/v1/auth/**",
-                                "/api/v1/employee/**"
+                                "/api/v1/auth/**"
+
 
                         ).permitAll()
                         .requestMatchers("/api/v1/admin").hasAuthority(Role.ADMIN.name())
                         .requestMatchers("/api/v1/user").hasAuthority(Role.USER.name())
+                        .requestMatchers("/api/v1/employee/**").hasAuthority(Role.USER.name())
                         .requestMatchers("/api/v1/user/users").hasAuthority(Role.ADMIN.name())
 
                         .anyRequest().authenticated()
