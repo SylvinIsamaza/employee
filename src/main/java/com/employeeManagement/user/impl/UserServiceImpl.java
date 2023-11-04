@@ -1,6 +1,8 @@
 package com.employeeManagement.user.impl;
 
 
+import com.employeeManagement.employee.Entity.Employee;
+import com.employeeManagement.employee.repository.EmployeeRepository;
 import com.employeeManagement.user.entities.User;
 import com.employeeManagement.exception.ApiRequestException;
 import com.employeeManagement.user.model.ResetPasswordRequest;
@@ -31,6 +33,7 @@ public class UserServiceImpl implements UserService {
     private final PasswordEncoder passwordEncoder;
     private final JWTService jwtService;
     private final EmailService emailService;
+    private  final EmployeeRepository employeeRepository;
 
 
 //     get single user by get token passed in header by Authorization no need to pass it second time that is why this function doesn't take any  argument as in spring config  we require token
@@ -72,6 +75,9 @@ public class UserServiceImpl implements UserService {
         var token = securityContext.getAuthentication().getCredentials().toString();
         var userEmail = jwtService.extractUserName(token);
         String subject = "Account Deleted Successfully 🌟";
+        List<Employee> employees =  employeeRepository.findByCreatedByEmail(userEmail,null);
+        employeeRepository.deleteAll(employees);
+
         String text = "Hello " + userEmail + ",\n\n" +
                 "We want to inform you that your account has been successfully deleted from our API community. We are grateful for the time you spent with us and hope your experience was rewarding.\n\n" +
                 "If you ever decide to return, we'll be here to welcome you back. Until then, we wish you the best in your future endeavors.\n\n" +
@@ -98,6 +104,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+
     public UpdatePasswordResponse updatePassword(ResetPasswordRequest resetPasswordRequest) {
 
         SecurityContext securityContext = SecurityContextHolder.getContext();

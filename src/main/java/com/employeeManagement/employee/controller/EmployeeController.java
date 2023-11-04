@@ -25,8 +25,8 @@ public class EmployeeController {
     }
 
     @GetMapping("/getEmployees")
-    ResponseEntity<ArrayList<Employee>> getEmployees(){
-        return  ResponseEntity.ok().body(service.getAllEmployees());
+    ResponseEntity<ArrayList<Employee>> getEmployees(@RequestParam(defaultValue = "2") int page, @RequestParam(defaultValue = "5") int size ){
+        return  ResponseEntity.ok().body(service.getAllEmployees(page,size));
     }
     @DeleteMapping("/deleteEmployee/{id}")
     ResponseEntity<EmployeeResponse> deleteEmployee(@PathVariable Long id ){

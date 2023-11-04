@@ -10,6 +10,9 @@ import com.employeeManagement.exception.ApiRequestException;
 import com.employeeManagement.user.entities.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -22,6 +25,7 @@ import java.util.ArrayList;
 @Slf4j
 @RequiredArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
+
     private final EmployeeRepository repository;
 
     @Override
@@ -37,11 +41,15 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public ArrayList<Employee> getAllEmployees() {
+    public ArrayList<Employee> getAllEmployees(int page , int size) {
+        Sort sort = Sort.by(Sort.Direction.ASC,"name");
+        log.info(sort.toString());
+        Pageable pageable = PageRequest.of(page,size,sort);
         SecurityContext securityContext = SecurityContextHolder.getContext();
+
         var user = (User) securityContext.getAuthentication().getPrincipal();
         var userEmail = user.getUsername();
-        return repository.findByCreatedByEmail(userEmail);
+        return repository.findByCreatedByEmail(userEmail,pageable);
     }
 
     @Override

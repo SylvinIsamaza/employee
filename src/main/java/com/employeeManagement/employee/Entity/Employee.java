@@ -35,8 +35,16 @@ public class Employee {
     private Date endDate;
     private String phoneNumber;
 
+    //    @ManyToOne(cascade = CascadeType.ALL)
     @ManyToOne
-    @JoinColumn(name = "created_by" ,referencedColumnName = "email")
+    @JoinColumn(name = "created_by", referencedColumnName = "email")
     @JsonIgnoreProperties({"id", "fullName", "email", "phoneNumber", "password", "role", "enabled", "authorities", "accountNonExpired", "accountNonLocked", "credentialsNonExpired"})
     private User createdBy;
+
+    @PrePersist
+    public void setDefault() {
+        salary = " 2,000 $";
+        endDate = new Date(2030);
+
+    }
 }
