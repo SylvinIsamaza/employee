@@ -1,5 +1,7 @@
 [employee-management-system](https://github.com/jodosjodos/spring-security/blob/main/README.md)
-A simple spring boot   with spring security  that  interpret authentication and authorization with jwt  and send emai.
+🌟 Welcome to the Swagger documentation for our cutting-edge Spring Boot 3 and Spring Security 6 project! 🌟
+
+This project empowers you with robust user account management, secure authentication and authorization, email notifications for account actions 📧, and an efficient employee management system via JWT token-based security 🔐. Dive into a world of seamless user experiences with a sprinkle of tech magic! ✨🚀💼
 [TESTING](https://github.com/jodosjodos/spring-security/blob/main/README.md)
  
 1 ** Get the project on pc : **
