@@ -3,6 +3,7 @@ package com.employeeManagement.employee.controller;
 import com.employeeManagement.employee.Entity.Employee;
 import com.employeeManagement.employee.model.EmployeeRequest;
 import com.employeeManagement.employee.model.EmployeeResponse;
+import com.employeeManagement.employee.model.UpdateEmployeeRequest;
 import com.employeeManagement.employee.services.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -36,9 +37,9 @@ public class EmployeeController {
     ResponseEntity<Employee> getEmployee(@PathVariable Long id){
 return  ResponseEntity.ok().body(service.getEmployee(id));
     }
-    @PatchMapping("/updateEmploye/{id}")
-    ResponseEntity<Employee> updateEmployee(@PathVariable Long id){
-        return  ResponseEntity.ok().body(service.updateEmployee(id));
+    @PatchMapping("/updateEmployee/{id}")
+    ResponseEntity<Employee> updateEmployee(@PathVariable Long id , @RequestBody UpdateEmployeeRequest updateEmployeeRequest){
+        return  ResponseEntity.ok().body(service.updateEmployee(id,updateEmployeeRequest));
     }
 
 }

@@ -3,6 +3,7 @@ package com.employeeManagement.employee.impl;
 import com.employeeManagement.employee.Entity.Employee;
 import com.employeeManagement.employee.model.EmployeeRequest;
 import com.employeeManagement.employee.model.EmployeeResponse;
+import com.employeeManagement.employee.model.UpdateEmployeeRequest;
 import com.employeeManagement.employee.repository.EmployeeRepository;
 import com.employeeManagement.employee.services.EmployeeService;
 import com.employeeManagement.exception.ApiRequestException;
@@ -52,11 +53,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee employee = repository.findByCreatedByEmailAndId(userEmail, id);
         if (employee != null) {
             repository.deleteById(id);
-            return EmployeeResponse.builder().email(userEmail).name(employee.getName()).message(" employee hae been deleted successfully").build();
+            return EmployeeResponse.builder().email(userEmail).name(employee.getName()).message(" employee has been deleted successfully").build();
 
         }
+        repository.findById(id).orElseThrow(() -> new ApiRequestException(" employee with that id not found", HttpStatus.NOT_FOUND));
 
-        throw new ApiRequestException(" employee created by that user doesn't exits or employee with that id not found", HttpStatus.NOT_FOUND);
+        throw new ApiRequestException(" employee created by that user doesn't exits ", HttpStatus.NOT_FOUND);
 
 
     }
@@ -71,12 +73,40 @@ public class EmployeeServiceImpl implements EmployeeService {
             return employee;
         }
 
-        throw new ApiRequestException(" employee created by that user doesn't exits or employee with that id not found", HttpStatus.NOT_FOUND);
+        repository.findById(id).orElseThrow(() -> new ApiRequestException(" employee with that id not found", HttpStatus.NOT_FOUND));
+
+        throw new ApiRequestException(" employee created by that user doesn't exits ", HttpStatus.NOT_FOUND);
 
     }
 
     @Override
-    public Employee updateEmployee(Long id) {
-        return null;
+    public Employee updateEmployee(Long id, UpdateEmployeeRequest updateEmployeeRequest) {
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+        var user = (User) securityContext.getAuthentication().getPrincipal();
+        var userEmail = user.getUsername();
+        Employee employee = repository.findByCreatedByEmailAndId(userEmail, id);
+        if (employee != null) {
+            if (updateEmployeeRequest.getName() != null) {
+                employee.setName(updateEmployeeRequest.getName());
+            }
+            if (updateEmployeeRequest.getSalary() != null) {
+                employee.setSalary(updateEmployeeRequest.getSalary());
+            }
+            if (updateEmployeeRequest.getDepartment() != null) {
+                employee.setDepartment(updateEmployeeRequest.getDepartment());
+            }
+            if (updateEmployeeRequest.getJobTitle() != null) {
+                employee.setJobTitle(updateEmployeeRequest.getJobTitle());
+            }
+            if (updateEmployeeRequest.getEndDate() != null) {
+                employee.setEndDate(updateEmployeeRequest.getEndDate());
+            }
+            return repository.save(employee);
+        }
+
+        repository.findById(id).orElseThrow(() -> new ApiRequestException(" employee with that id not found", HttpStatus.NOT_FOUND));
+        throw new ApiRequestException(" employee created by that user doesn't exits ", HttpStatus.NOT_FOUND);
+
+
     }
 }
