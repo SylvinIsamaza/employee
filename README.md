@@ -1,5 +1,5 @@
 [employee-management-system](https://github.com/jodosjodos/spring-security/blob/main/README.md)
-🌟 Welcome to the Swagger documentation for our cutting-edge Spring Boot 3 and Spring Security 6 project! 🌟
+🌟 Welcome to the Swagger documentation for our cutting-edge employee managemet system! 🌟
 
 This project empowers you with robust user account management, secure authentication and authorization, email notifications for account actions 📧, and an efficient employee management system via JWT token-based security 🔐. Dive into a world of seamless user experiences with a sprinkle of tech magic! ✨🚀💼
 [TESTING](https://github.com/jodosjodos/spring-security/blob/main/README.md)
