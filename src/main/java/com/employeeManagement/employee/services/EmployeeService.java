@@ -7,6 +7,7 @@ import com.employeeManagement.employee.model.UpdateEmployeeRequest;
 import com.employeeManagement.employee.repository.EmployeeRepository;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 
 public interface EmployeeService {
@@ -14,10 +15,10 @@ public interface EmployeeService {
 
   ArrayList<Employee> getAllEmployees(int pageNumber, int pageSize);
 
-  EmployeeResponse deleteEmployee(Long id);
+  EmployeeResponse deleteEmployee(UUID id);
 
-  Employee getEmployee(Long id);
+  Employee getEmployee(UUID id);
 
-  Employee updateEmployee(Long id, UpdateEmployeeRequest updateEmployeeRequest);
+  Employee updateEmployee(UUID id, UpdateEmployeeRequest updateEmployeeRequest);
 
 }

@@ -16,8 +16,9 @@ import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
                         email = "jeandedieu2030@gmail.com",
                         url = "https://github.com/jodosjodos"
                 ),
-                description = "Welcome to the Swagger documentation for a cutting-edge Spring Boot 3 and Spring Security 6 project. This project is designed to shine a spotlight on authentication and authorization, providing you with robust error handling, email notifications for account creation, and secure user management via JWT token-based security.",
-                title = "🚀 Spring Boot 3 & Spring Security 6: Authentication & Authorization",
+                description = "Welcome to the Swagger documentation for our cutting-edge Spring Boot 3 and Spring Security 6 project. This project empowers you with robust user account management, secure authentication and authorization, email notifications for account actions, and efficient employee management system via JWT token-based security.",
+
+                title = "employment management system : Authentication & Authorization",
                 version = "1.0",
                 license = @License(
                         name = "Connect on LinkedIn",

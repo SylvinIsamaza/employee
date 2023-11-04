@@ -19,6 +19,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 
 @Service
@@ -53,7 +54,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public EmployeeResponse deleteEmployee(Long id) {
+    public EmployeeResponse deleteEmployee(UUID id) {
 
         SecurityContext securityContext = SecurityContextHolder.getContext();
         var user = (User) securityContext.getAuthentication().getPrincipal();
@@ -72,7 +73,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee getEmployee(Long id) {
+    public Employee getEmployee(UUID id) {
         SecurityContext securityContext = SecurityContextHolder.getContext();
         var user = (User) securityContext.getAuthentication().getPrincipal();
         var userEmail = user.getUsername();
@@ -88,7 +89,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee updateEmployee(Long id, UpdateEmployeeRequest updateEmployeeRequest) {
+    public Employee updateEmployee(UUID id, UpdateEmployeeRequest updateEmployeeRequest) {
         SecurityContext securityContext = SecurityContextHolder.getContext();
         var user = (User) securityContext.getAuthentication().getPrincipal();
         var userEmail = user.getUsername();

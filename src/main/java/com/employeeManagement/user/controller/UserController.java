@@ -66,7 +66,7 @@ public class UserController {
     //     update user by passing token in header and body
     @Operation(
             summary = "Update User Profile",
-            description = "This protected operation allows users to update their profile details by providing a valid access token in the request header. Please note that the email cannot be updated.",
+            description = "This protected operation allows users to update their profile details by providing a valid access token in the request header and new credentials. Please note that the email cannot be updated.",
             responses = {
                     @ApiResponse(
                             description = "Profile updated successfully.",
@@ -96,7 +96,7 @@ public class UserController {
     //     delete user by passing token then send email tell you that we have deleted your account
     @Operation(
             summary = "Terminate Account Gracefully",
-            description = "Safeguarded operation for updating user details via a token in the header and supplying new data in the request body. Please note that email updates are not allowed.",
+            description = "Safeguarded operation for deleting user details via a token in the header and send email notifying you. ",
             responses = {
                     @ApiResponse(
                             description = "Your account has been gracefully terminated. A confirmation email has been sent.",
@@ -169,7 +169,7 @@ public class UserController {
 
     @Operation(
             summary = "update user password by using his token",
-            description = "protected operation for  updating specific pass byu providing oldPassword  and  user token , if token or oldPassword is invalid then this will provide  bad request status code",
+            description = "protected operation for  updating specific pass by providing oldPassword  and  user token , if token or oldPassword is invalid then this will provide  bad request status code",
             responses = {
                     @ApiResponse(
 
